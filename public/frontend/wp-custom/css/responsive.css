@@ -1,0 +1,199 @@
+@media(min-width:0px) and (max-width:575px){
+.container{ max-width:100%;}
+
+/*--------------- HEADER_START --------------*/
+/*--------------- HEADER_END --------------*/
+
+/*--------------- CONTAIN_START --------------*/
+#contain{}
+
+/*---------- HERO_BLOCK_START ----------*/
+.hero-block-logo-hp{         width: 120px;
+    height: 32px;
+    left: 20px;
+    top: 51px;}
+
+.navigation-main-hp .navbar{ padding-left: 2px;}
+.navigation-main-hp .navbar > ul > li > a.nav-link{ font-size: 38px; line-height: 56px;}
+.secondary-nav-main-hp ul li{ margin: 6px 0px 6px;}
+.secondary-nav-main-hp ul li a{ font-size: 12px; line-height: 26px;}
+.secondary-nav-main-hp ul li:after{ margin: 0px 3px 0px 13px; -webkit-transform: translateY(-3px); transform: translateY(-3px);}
+.secondary-nav-main-hp ul li:nth-child(2)::after{ display: none; }
+.hero-down-arrow-hp{ width: 22px; height: 22px; bottom: 30px;}
+/*---------- HERO_BLOCK_END ----------*/
+
+/*--------------- CONTAIN_END --------------*/
+
+/*--------------- FOOTER_START --------------*/
+/*--------------- FOOTER_END --------------*/
+
+
+.menucontent .description-wrap{
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.menucontent .investigations .description-wrap{
+    padding-left: 0;
+    padding-bottom: 0;
+}
+.menucontent .team .description-wrap{
+    padding-left: 0;
+    padding-bottom: 0;
+}
+.menucontent .news .description-wrap{
+    padding-left: 0;
+    padding-bottom: 0;
+}
+.menucontent .investigations .description-wrap .single-news{
+    padding-left: 20px;
+}
+.menucontent .team .description-wrap .single-news{
+    padding-left: 20px;
+}
+.menucontent .news .description-wrap .single-news{
+    padding-left: 20px;
+}
+.menucontent .investigations .description-wrap .single-news .menucontent{
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
+.menucontent .team .description-wrap .single-news .menucontent{
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
+.menucontent .news .description-wrap .single-news .menucontent{
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
+}
+
+
+
+@media(min-width:576px) and (max-width:767px){
+.container{ max-width:100%;}
+
+/*--------------- HEADER_START --------------*/
+/*--------------- HEADER_END --------------*/
+
+/*--------------- CONTAIN_START --------------*/
+#contain{}
+
+/*---------- HERO_BLOCK_START ----------*/
+.hero-block-logo-hp{ width: 120px; height: 38px; left: 20px; top: 58px;}
+
+.navigation-main-hp .navbar{ padding-left: 2px;}
+.navigation-main-hp .navbar > ul > li > a.nav-link{ font-size: 38px; line-height: 56px;}
+.secondary-nav-main-hp ul li{ margin: 6px 0px 6px;}
+.secondary-nav-main-hp ul li a{ font-size: 12px; line-height: 26px;}
+.secondary-nav-main-hp ul li:after{ margin: 0px 3px 0px 13px; -webkit-transform: translateY(-3px); transform: translateY(-3px);}
+.secondary-nav-main-hp ul li:nth-child(2)::after{ display: none; }
+.hero-down-arrow-hp{ width: 22px; height: 22px; bottom: 30px;}
+/*---------- HERO_BLOCK_END ----------*/
+
+/*--------------- CONTAIN_END --------------*/
+
+/*--------------- FOOTER_START --------------*/
+/*--------------- FOOTER_END --------------*/
+
+
+}
+
+@media(min-width:768px) and (max-width:991px){
+.container{ max-width:768px;}
+
+
+/*--------------- HEADER_START --------------*/
+/*--------------- HEADER_END --------------*/
+
+/*--------------- CONTAIN_START --------------*/
+#contain{}
+
+/*---------- HERO_BLOCK_START ----------*/
+.hero-block-logo-hp{ width: 38px; height: 38px; left: 20px; top: 24px;}
+
+.navigation-main-hp .navbar{ padding-left: 2px;}
+/* .navigation-main-hp .navbar > ul > li > a.nav-link{ font-size: 38px; line-height: 56px;} */
+
+.secondary-nav-main-hp ul li{ margin: 6px 0px 6px;}
+/* .secondary-nav-main-hp ul li a{ font-size: 12px; line-height: 26px;} */
+.secondary-nav-main-hp ul li:after{ margin: 0px 3px 0px 13px; -webkit-transform: translateY(-3px); transform: translateY(-3px);}
+.secondary-nav-main-hp ul li:nth-child(2)::after{ display: none; }
+/*---------- HERO_BLOCK_END ----------*/
+
+/*--------------- CONTAIN_END --------------*/
+
+/*--------------- FOOTER_START --------------*/
+/*--------------- FOOTER_END --------------*/
+
+
+}
+
+@media(min-width:992px) and (max-width:1170px){
+.container{ max-width:992px;}
+
+
+/*--------------- HEADER_START --------------*/
+/*--------------- HEADER_END --------------*/
+
+/*--------------- CONTAIN_START --------------*/
+#contain{}
+
+/*---------- HERO_BLOCK_START ----------*/
+/* .navigation-main-hp .navbar{ padding-left: 65px;} */
+/* .navigation-main-hp .navbar > ul > li > a.nav-link{ font-size: 70px; line-height: 80px;} */
+.navigation-main-hp .navbar > ul > li > a.nav-link::after{ width: 60px; height: 54px;}
+/* .navigation-main-hp .navbar > ul > li > a.nav-link:hover{ padding-left: 75px;} */
+/* .secondary-nav-main-hp{ width: 305px;} */
+.secondary-nav-main-hp ul li:nth-child(2){ padding-right: 0px;}
+.secondary-nav-main-hp ul li:nth-child(2)::after{ display: none;}
+/*---------- HERO_BLOCK_END ----------*/
+
+/*---------- LANDINGPAGE_2_START ----------*/
+
+
+/*---------- LANDINGPAGE_2_END ----------*/
+
+/*--------------- CONTAIN_END --------------*/
+
+/*--------------- FOOTER_START --------------*/
+/*--------------- FOOTER_END --------------*/
+
+}
+
+@media(min-width:1171px) and (max-width:1340px){
+.container{ max-width:1171px;}
+
+
+/*--------------- HEADER_START --------------*/
+/*--------------- HEADER_END --------------*/
+
+/*--------------- CONTAIN_START --------------*/
+#contain{}
+
+/*---------- HERO_BLOCK_START ----------*/
+/* .secondary-nav-main-hp{ width: 305px;} */
+/* .secondary-nav-main-hp ul li:nth-child(2){ padding-right: 0px;}
+.secondary-nav-main-hp ul li:nth-child(2)::after{ display: none;} */
+/*---------- HERO_BLOCK_END ----------*/
+
+/*---------- LANDINGPAGE_2_START ----------*/
+
+
+/*---------- LANDINGPAGE_2_END ----------*/
+
+/*--------------- CONTAIN_END --------------*/
+
+/*--------------- FOOTER_START --------------*/
+/*--------------- FOOTER_END --------------*/
+
+}
+
+@media(min-width:992px) and (max-width:8000px){
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-block-logo-hp {
+        height: 100px;
+        width: 120px;
+    }
+}

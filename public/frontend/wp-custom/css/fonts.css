@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'neue_montrealregular';
+    src: url('../fonts/neuemontreal-regular-webfont.eot');
+    src: url('../fonts/neuemontreal-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuemontreal-regular-webfont.woff2') format('woff2'),
+         url('../fonts/neuemontreal-regular-webfont.woff') format('woff'),
+         url('../fonts/neuemontreal-regular-webfont.ttf') format('truetype'),
+         url('../fonts/neuemontreal-regular-webfont.svg#neue_montrealregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neue_montrealbold';
+    src: url('../fonts/neuemontreal-bold-webfont.eot');
+    src: url('../fonts/neuemontreal-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuemontreal-bold-webfont.woff2') format('woff2'),
+         url('../fonts/neuemontreal-bold-webfont.woff') format('woff'),
+         url('../fonts/neuemontreal-bold-webfont.ttf') format('truetype'),
+         url('../fonts/neuemontreal-bold-webfont.svg#neue_montrealbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neue_montreallight';
+    src: url('../fonts/neuemontreal-light-webfont.eot');
+    src: url('../fonts/neuemontreal-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuemontreal-light-webfont.woff2') format('woff2'),
+         url('../fonts/neuemontreal-light-webfont.woff') format('woff'),
+         url('../fonts/neuemontreal-light-webfont.ttf') format('truetype'),
+         url('../fonts/neuemontreal-light-webfont.svg#neue_montreallight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neue_montrealmedium';
+    src: url('../fonts/neuemontreal-medium-webfont.eot');
+    src: url('../fonts/neuemontreal-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuemontreal-medium-webfont.woff2') format('woff2'),
+         url('../fonts/neuemontreal-medium-webfont.woff') format('woff'),
+         url('../fonts/neuemontreal-medium-webfont.ttf') format('truetype'),
+         url('../fonts/neuemontreal-medium-webfont.svg#neue_montrealmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
