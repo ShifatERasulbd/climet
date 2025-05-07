@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralDataController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\InvestigarionsController;
+use App\Http\Controllers\InvestigarionContentController;
 Route::get('/', function () {
     return view('frontend.index');
 });
@@ -25,6 +29,8 @@ Route::get('/admin', function () {
 });
 
 
+
+
   // About All Route
   Route::controller(GeneralDataController::class)->group(function () {
     Route::get('/about', 'About')->name('about');
@@ -40,7 +46,7 @@ Route::get('/admin', function () {
   // Mehodology All Route
   Route::controller(GeneralDataController::class)->group(function () {
     Route::get('/mehodology', 'Methodology')->name('methodhology');
-    Route::get('/add/mehodology', 'addMethodology')->name('about.mehodology');
+    Route::get('/add/mehodology', 'addMethodology')->name('add.mehodology');
     Route::post('/store/methodology', 'MethodologyStore')->name('methodology.store');
     Route::get('/methodology/edit/{id}', 'MethodologyEdit')->name('methodology.Edit');
 
@@ -59,7 +65,7 @@ Route::controller(GeneralDataController::class)->group(function () {
     Route::post('/store/contact', 'ContactStore')->name('contact.store');
     Route::get('/contact/edit/{id}', 'ContactEdit')->name('contact.edit');
     Route::post('/update/contact', 'ContactUpdate')->name('contact.update');
-    Route::get('/delete/contact/{id}', 'MethodologyDelete')->name('contact.delete');
+    Route::get('/delete/contact/{id}', 'ContactDelete')->name('contact.delete');
   
     
 });
@@ -68,7 +74,53 @@ Route::controller(GeneralDataController::class)->group(function () {
 
 
  
+// News All Route
+Route::controller(NewsController::class)->group(function () {
+    Route::get('/news', 'index')->name('news');
+    Route::get('/add/news', 'create')->name('news.add');
+    Route::post('/store/news', 'store')->name('news.store');
+    Route::get('/news/edit/{id}', 'edit')->name('news.edit');
+    Route::post('/update/news', 'update')->name('news.update');
+    Route::get('/delete/news/{id}', 'destroy')->name('news.delete');
+   
+});
 
+// team All Route
+Route::controller(TeamController::class)->group(function () {
+    Route::get('/team', 'index')->name('team');
+    Route::get('/add/team', 'create')->name('team.add');
+    Route::post('/store/team', 'store')->name('team.store');
+    Route::get('/team/edit/{id}', 'edit')->name('team.edit');
+    Route::post('/update/team', 'update')->name('team.update');
+    Route::get('/delete/team/{id}', 'destroy')->name('team.delete');
+   
+});
+
+
+// investigation All Route
+Route::controller(InvestigarionsController::class)->group(function () {
+    Route::get('/investigation', 'index')->name('investigation');
+    Route::get('/add/investigation', 'create')->name('investigation.add');
+    Route::post('/store/investigation', 'store')->name('investigation.store');
+    Route::get('/investigation/edit/{id}', 'edit')->name('investigation.edit');
+    Route::post('/update/investigation', 'update')->name('investigation.update');
+    Route::get('/delete/investigation/{id}', 'destroy')->name('investigation.delete');
+   
+   
+});
+
+
+// investigation_content All Route
+Route::controller(InvestigarionContentController::class)->group(function () {
+    // Route::get('/investigation', 'index')->name('investigation');
+    // Route::get('/add/investigation', 'create')->name('investigation.add');
+    // Route::post('/store/investigation', 'store')->name('investigation.store');
+    // Route::get('/investigation/edit/{id}', 'edit')->name('investigation.edit');
+    Route::post('/update/investigationContent', 'update')->name('investigationContent.update');
+    Route::get('/delete/investigationContent/{id}', 'destroy')->name('investigationContent.delete');
+   
+   
+});
 
 
 });
