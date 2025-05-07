@@ -10,10 +10,7 @@ class GeneralDataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-    
-    }
+   
 
     public function about(){
          $about = general_data::where('title','About')->get();
@@ -149,9 +146,6 @@ public function ContactEdit($id){
 }
 
 
-
-
-
 public function ContactUpdate(Request $request){
     $contact_id = $request->id;
     general_data::findOrFail($contact_id)->update([
@@ -161,51 +155,15 @@ public function ContactUpdate(Request $request){
     ->route('contact');
 }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(general_data $general_data)
-    {
-        //
-    }
+public function ContactDelete($id){
+    general_data::findOrFail($id)->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(general_data $general_data)
-    {
-        //
-    }
+    return redirect()
+    ->route('methodhology');
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, general_data $general_data)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(general_data $general_data)
-    {
-        //
-    }
+    
 }

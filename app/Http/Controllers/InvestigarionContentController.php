@@ -9,7 +9,7 @@ class InvestigarionContentController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     */ 
     public function index()
     {
         //
@@ -53,13 +53,26 @@ class InvestigarionContentController extends Controller
     public function update(Request $request, investigarion_content $investigarion_content)
     {
         //
+         $investigation_id = $request->content_id;
+
+         investigarion_content::findOrFail($investigation_id)->update([
+            'sub_title' => $request->subtitle,
+            'description'=>$request->details
+          
+        ]);
+        return redirect()
+        ->route('investigation');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(investigarion_content $investigarion_content)
+    public function destroy(investigarion_content $investigarion_content,$id)
     {
         //
+        investigarion_content::findOrFail($id)->delete();
+
+        return redirect()
+        ->route('investigation');
     }
 }
