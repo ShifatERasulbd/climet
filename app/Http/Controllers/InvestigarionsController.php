@@ -34,33 +34,33 @@ class InvestigarionsController extends Controller
             'title' => $request->title,
            
         ]);
-    //    return $latestId = $investigation->id; // This is the ID of the newly created record
-     $investigation=investigarions::orderBy('id','Desc')->limit(1)->first();
-      $latestId=$investigation->id;
+        
+        //    return $latestId = $investigation->id; // This is the ID of the newly created record
+        $investigation = investigarions::orderBy('id','Desc')->limit(1)->first();
+        $latestId      = $investigation->id;
 
 
-        $titles = $request->input('sub_title'); // Array of subtitles
-        $details = $request->input('details');  // Array of details
+        $titles  = $request->input('sub_title');  // Array of subtitles
+        $details = $request->input('details');    // Array of details
 
 
         if ($titles && $details && count($titles) == count($details)) {
           
             foreach ($titles as $index => $subtitle) {
                 $detail = $details[$index];
-    
-                // Example: save to database (adjust model/fields as needed)
+                if(empty($subtitle)|| empty($detail)){
+                    continue;
+                }
+                  // Example: save to database (adjust model/fields as needed)
                 investigarion_content::create([
-                    'sub_title' => $subtitle,
+                    'sub_title'   => $subtitle,
                     'description' => $detail,
-                    'title_id' => $latestId,
+                    'title_id'    => $latestId,
                 ]);
             }
         }
 
-        $investigation_content=investigarion_content::orderBy('id','DESC')->limit(1)->first();
-        $investigation_content_id=$investigation_content->id;
-
-        investigarion_content::findOrFail($investigation_content_id)->delete();
+      
 
         return redirect()
         ->route('investigation');
