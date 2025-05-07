@@ -8,6 +8,9 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\InvestigarionsController;
 use App\Http\Controllers\InvestigarionContentController;
 Route::get('/', function () {
+    return view('frontend.app');
+});
+Route::get('/test', function () {
     return view('frontend.index');
 });
 
@@ -23,24 +26,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
-Route::get('/admin', function () {
-    return view('backend.index');
-});
+    Route::get('/admin', function () {
+        return view('backend.index');
+    });
 
-
-
-
-  // About All Route
-  Route::controller(GeneralDataController::class)->group(function () {
-    Route::get('/about', 'About')->name('about');
-    Route::get('/add/about', 'AboutAdd')->name('about.add');
-    Route::post('/store/about', 'AboutStore')->name('about.store');
-    Route::get('/about/edit/{id}', 'AboutEdit')->name('about.Edit');
-    Route::post('/update/about', 'AboutUpdate')->name('about.update');
-    Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
-    
-});
+    // About All Route
+    Route::controller(GeneralDataController::class)->group(function () {
+        Route::get('/about', 'About')->name('about');
+        Route::get('/add/about', 'AboutAdd')->name('about.add');
+        Route::post('/store/about', 'AboutStore')->name('about.store');
+        Route::get('/about/edit/{id}', 'AboutEdit')->name('about.Edit');
+        Route::post('/update/about', 'AboutUpdate')->name('about.update');
+        Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
+    });
 
 
   // Mehodology All Route
@@ -49,11 +47,8 @@ Route::get('/admin', function () {
     Route::get('/add/mehodology', 'addMethodology')->name('add.mehodology');
     Route::post('/store/methodology', 'MethodologyStore')->name('methodology.store');
     Route::get('/methodology/edit/{id}', 'MethodologyEdit')->name('methodology.Edit');
-
     Route::post('/update/methodology', 'MethodologyUpdate')->name('methodology.update');
     Route::get('/delete/methodology/{id}', 'MethodologyDelete')->name('methodology.delete');
-  
-    
 });
 
 
@@ -66,8 +61,6 @@ Route::controller(GeneralDataController::class)->group(function () {
     Route::get('/contact/edit/{id}', 'ContactEdit')->name('contact.edit');
     Route::post('/update/contact', 'ContactUpdate')->name('contact.update');
     Route::get('/delete/contact/{id}', 'ContactDelete')->name('contact.delete');
-  
-    
 });
 
 
