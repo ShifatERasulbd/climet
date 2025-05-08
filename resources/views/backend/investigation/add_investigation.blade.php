@@ -27,7 +27,7 @@
                                         <!-- Wrapper for all image inputs -->
                                         <div class="image-repeater-wrapper">
                                             <div class="row control-group input-group mb-2">
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-12">
                                                 <input type="text" name="sub_title[]" class="form-control" placeholder="Add Subtitle Here" />
                                                 </div>
                                                 <div class="col-sm-12">
@@ -51,7 +51,7 @@
                                         <!-- Hidden clone template -->
                                         <div class="clone d-none">
                                             <div class="row control-group input-group mb-2">
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-12">
                                                 <input type="text" name="sub_title[]" class="form-control" placeholder="Add Subtitle Here" />
                                                 </div>
                                                 <div class="col-sm-12">
