@@ -43,9 +43,11 @@
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Select Team</label>
                                         <div class="col-sm-12 col-md-7">
                                             <select class="form-control selectric" name="category_name">
-                                                <option value="main_team">Main Team</option>
-                                                <option value="Affiliated_researchers">Affiliate Team</option>
-                                                <option value="Collaborators">Collaborators</option>
+                                                <option value="" style="display:none">Select Team Category</option>
+                                                @foreach($team_category as $team_category)
+                                                    <option value="{{ $team_category->category_name }}">{{ $team_category->category_name }}</option>
+                                                @endforeach
+                                                
                                             </select>
                                         </div>
                                     </div>
