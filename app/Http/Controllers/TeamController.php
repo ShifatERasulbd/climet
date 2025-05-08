@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\team;
 use Illuminate\Http\Request;
+use App\Models\team_category;
 
 class TeamController extends Controller
 {
@@ -21,7 +22,8 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('backend.team.add_team');
+        $team_category=team_category::orderBy('id','ASC')->get();
+        return view('backend.team.add_team',compact('team_category'));
     }
 
     /**
@@ -53,7 +55,8 @@ class TeamController extends Controller
     public function edit(team $team,$id)
     {
         $team = team::findOrFail($id);
-        return view('backend.team.edit_team', compact('team'));
+        $team_category=team_category::orderBy('id','ASC')->get();
+        return view('backend.team.edit_team', compact('team','team_category'));
     }
 
     /**
