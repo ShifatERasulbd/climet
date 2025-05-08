@@ -38,7 +38,7 @@ class InvestigarionsController extends Controller
         //    return $latestId = $investigation->id; // This is the ID of the newly created record
         $investigation = investigarions::orderBy('id','Desc')->limit(1)->first();
         $latestId      = $investigation->id;
-
+        $latestId = $investigation->id; // get the correct ID from the inserted post
 
         $titles  = $request->input('sub_title');  // Array of subtitles
         $details = $request->input('details');    // Array of details
@@ -79,28 +79,50 @@ class InvestigarionsController extends Controller
      */
     public function edit($id)
     {
-        $investigation = investigarions::findOrFail($id);
+        $investigation = investigarions::with('investigation_contents')->findOrFail($id);
 
-         $investigation_content=investigarion_content::where('title_id',$id)->get();
+    // Create arrays of subtitles and details
+    $investigation->subtitles = $investigation->investigation_contents->pluck('sub_title')->toArray();
+    $investigation->details = $investigation->investigation_contents->pluck('description')->toArray();
 
-        
-
-        return view('backend.investigation.edit_investigation', compact('investigation','investigation_content'));
+    return view('backend.investigation.edit_investigation', compact('investigation'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, investigarions $investigarions)
+    public function update(Request $request, investigarions $investigation)
     {
-        $investigation_id = $request->id;
-        investigarions::findOrFail($investigation_id)->update([
-            'title' => $request->title,
-          
+        \Log::info('Update called for ID: ' . $investigation->id); // Debug log
+    
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'sub_title' => 'required|array',
+            'details' => 'required|array',
         ]);
-        return redirect()
-        ->route('investigation');
-    } 
+    
+        $investigation->update([
+            'title' => $request->title,
+        ]);
+    
+        // Remove old contents
+        investigarion_content::where('title_id', $investigation->id)->delete();
+    
+        // Re-insert new contents
+        foreach ($request->sub_title as $index => $subtitle) {
+            $detail = $request->details[$index];
+    
+            if (empty($subtitle) || empty($detail)) continue;
+    
+            investigarion_content::create([
+                'sub_title' => $subtitle,
+                'description' => $detail,
+                'title_id' => $investigation->id,
+            ]);
+        }
+    
+        return redirect()->route('investigation')->with('success', 'Investigation updated.');
+    }
 
 
     public function updateContent(Request $request){
