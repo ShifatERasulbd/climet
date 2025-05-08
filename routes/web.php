@@ -8,8 +8,9 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\InvestigarionsController;
 use App\Http\Controllers\InvestigarionContentController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\TeamCategoryController;
 Route::get('/', function () {
-    return view('frontend.app');
+    return view('frontend.index');
 });
 Route::get('/test', function () {
     return view('frontend.index');
@@ -27,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-<<<<<<< HEAD
     Route::get('/admin', function () {
         return view('backend.index');
     });
@@ -41,26 +41,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/about', 'AboutUpdate')->name('about.update');
         Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
     });
-=======
-    
-// Route::get('/admin', function () {
-//     return view('backend.index');
-// });
-
-Route::get('/admin', [dashboardController::class, 'dashboard'])->name('admin');
-
-
-  // About All Route
-  Route::controller(GeneralDataController::class)->group(function () {
-    Route::get('/about', 'About')->name('about');
-    Route::get('/add/about', 'AboutAdd')->name('about.add');
-    Route::post('/store/about', 'AboutStore')->name('about.store');
-    Route::get('/about/edit/{id}', 'AboutEdit')->name('about.Edit');
-    Route::post('/update/about', 'AboutUpdate')->name('about.update');
-    Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
-    
-});
->>>>>>> 8073837 (update investigation edit)
 
 
   // Mehodology All Route
@@ -99,6 +79,19 @@ Route::controller(NewsController::class)->group(function () {
     Route::get('/delete/news/{id}', 'destroy')->name('news.delete');
    
 });
+
+// team_category All Route
+Route::controller(TeamCategoryController::class)->group(function () {
+    Route::get('/team_category', 'index')->name('team_category');
+    Route::get('/add/team_category', 'create')->name('team_category.add');
+    Route::post('/store/team_category', 'store')->name('team_category.store');
+    Route::get('/team_category/edit/{id}', 'edit')->name('team_category.edit');
+    Route::post('/update/team_category', 'update')->name('team_category.update');
+    Route::get('/delete/team_category/{id}', 'destroy')->name('team_category.delete');
+   
+   
+});
+
 
 // team All Route
 Route::controller(TeamController::class)->group(function () {
