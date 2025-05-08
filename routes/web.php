@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\InvestigarionsController;
 use App\Http\Controllers\InvestigarionContentController;
+use App\Http\Controllers\dashboardController;
 Route::get('/', function () {
     return view('frontend.app');
 });
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+<<<<<<< HEAD
     Route::get('/admin', function () {
         return view('backend.index');
     });
@@ -39,6 +41,26 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/about', 'AboutUpdate')->name('about.update');
         Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
     });
+=======
+    
+// Route::get('/admin', function () {
+//     return view('backend.index');
+// });
+
+Route::get('/admin', [dashboardController::class, 'dashboard'])->name('admin');
+
+
+  // About All Route
+  Route::controller(GeneralDataController::class)->group(function () {
+    Route::get('/about', 'About')->name('about');
+    Route::get('/add/about', 'AboutAdd')->name('about.add');
+    Route::post('/store/about', 'AboutStore')->name('about.store');
+    Route::get('/about/edit/{id}', 'AboutEdit')->name('about.Edit');
+    Route::post('/update/about', 'AboutUpdate')->name('about.update');
+    Route::get('/delete/about/{id}', 'AboutDelete')->name('about.delete');
+    
+});
+>>>>>>> 8073837 (update investigation edit)
 
 
   // Mehodology All Route
@@ -96,7 +118,7 @@ Route::controller(InvestigarionsController::class)->group(function () {
     Route::get('/add/investigation', 'create')->name('investigation.add');
     Route::post('/store/investigation', 'store')->name('investigation.store');
     Route::get('/investigation/edit/{id}', 'edit')->name('investigation.edit');
-    Route::post('/update/investigation', 'update')->name('investigation.update');
+    Route::put('/update/investigation/{investigation}', 'update')->name('investigation.update');
     Route::get('/delete/investigation/{id}', 'destroy')->name('investigation.delete');
    
    
