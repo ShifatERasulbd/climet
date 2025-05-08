@@ -27,10 +27,14 @@
                                         <div class="image-repeater-wrapper">
                                             @foreach($investigation->subtitles as $index => $subtitle)
                                             <div class="row control-group input-group mb-2">
-                                                <div class="col-sm-5">
+                                          
+                                                <div class="col-sm-12">
+                                                
                                                     <input type="text" name="sub_title[]" class="form-control" value="{{ $subtitle }}">
                                                 </div>
+                                              
                                                 <div class="col-sm-12">
+                                                
                                                     <textarea class="summernote" name="details[]">{{ $investigation->details[$index] ?? '' }}</textarea>
                                                 </div>
                                                 <div class="col-sm-2">
@@ -46,10 +50,14 @@
                                         <!-- Hidden clone template -->
                                         <div class="clone d-none">
                                             <div class="row control-group input-group mb-2">
-                                                <div class="col-sm-5">
+                                          
+                                                <div class="col-sm-12">
+                                               
                                                     <input type="text" name="sub_title[]" class="form-control" placeholder="Add Subtitle Here" />
                                                 </div>
+                                              
                                                 <div class="col-sm-12">
+                                                    
                                                     <textarea class="summernote" name="details[]" class="form-control" placeholder="Add Details Here"></textarea>
                                                 </div>
                                                 <div class="col-sm-2">
