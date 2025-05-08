@@ -9,8 +9,46 @@ use App\Http\Controllers\InvestigarionsController;
 use App\Http\Controllers\InvestigarionContentController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\TeamCategoryController;
+use App\Models\general_data;
+use App\Models\news;
+use App\Models\team;
+use App\Models\investigarions;
+
+
+
+
+// API Routes  (Need to move into api.php)
+Route::get('/api/about', function () {
+    return  App\Models\general_data::where('title', 'About')->get();
+});
+Route::get('/api/methodology', function () {
+    return general_data::where('title', 'Methodology')->get();
+});
+Route::get('/api/news', function () {
+    return news::orderBy('id', 'DESC')->get();
+});
+Route::get('/api/contacts', function () {
+    return response()->json(
+        general_data::where('title', 'Contacts')->get()
+    );
+});
+Route::get('/api/investigations', function () {
+    return investigarions::with('investigation_contents')
+        ->orderBy('id', 'DESC')
+        ->get();
+});
+
+Route::get('/api/team', function () {
+    return response()->json([
+        'main_team' => team::where('category_name', 'main_team')->get(),
+        'affiliated_researchers' => team::where('category_name', 'Affiliated_researchers')->get(),
+        'collaborators' => team::where('category_name', 'Collaborators')->get(),
+    ]);
+});
+
+
 Route::get('/', function () {
-    return view('frontend.index');
+    return view('frontend.app');
 });
 Route::get('/test', function () {
     return view('frontend.index');
@@ -132,5 +170,7 @@ Route::controller(InvestigarionContentController::class)->group(function () {
 
 
 });
+
+
 
 require __DIR__.'/auth.php';

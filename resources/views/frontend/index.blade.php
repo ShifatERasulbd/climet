@@ -46,8 +46,7 @@
                             <div class="col-lg-12 col-sm-12 col-md-12 col-12 hero-block-in-hp">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-lg-12 d-flex align-items-center w-100 justify-content-between" style="
-">
+                                        <div class="col-lg-12 d-flex align-items-center w-100 justify-content-between">
                                             <div class="hero-block-logo-hp">
                                                 <a onclick="window.location.reload();" href="#"><img width="160" src="wp-custom/images/logo.png" alt=""></a>
                                             </div>
