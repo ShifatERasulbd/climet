@@ -93,7 +93,7 @@ class InvestigarionsController extends Controller
      */
     public function update(Request $request, investigarions $investigation)
     {
-        \Log::info('Update called for ID: ' . $investigation->id); // Debug log
+      
     
         $request->validate([
             'title' => 'required|string|max:255',
