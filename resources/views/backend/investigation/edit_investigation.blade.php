@@ -10,61 +10,66 @@
                             <h4>Edit Investigation</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('investigation.update')}}" method="POST">
+                            <form action="{{ route('investigation.update', $investigation->id) }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="id" class="form-control" value="{{ $investigation->id }}">
+                                @method('PUT')
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control" value="{{ $investigation->title }}">
+                                        <input type="text" name="title" class="form-control" value="{{ old('title', $investigation->title) }}">
                                     </div>
                                 </div>
 
+                                <!-- Product Images Repeater -->
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Subtitle</label>
                                     <div class="col-sm-12 col-md-7">
+                                        <div class="image-repeater-wrapper">
+                                            @foreach($investigation->subtitles as $index => $subtitle)
+                                            <div class="row control-group input-group mb-2">
+                                                <div class="col-sm-5">
+                                                    <input type="text" name="sub_title[]" class="form-control" value="{{ $subtitle }}">
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <textarea class="summernote" name="details[]">{{ $investigation->details[$index] ?? '' }}</textarea>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                  
+                                                    @if($index > 0)
+                                                    <button class="btn btn-danger remove-btn" type="button">Delete</button>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+
+                                        <!-- Hidden clone template -->
+                                        <div class="clone d-none">
+                                            <div class="row control-group input-group mb-2">
+                                                <div class="col-sm-5">
+                                                    <input type="text" name="sub_title[]" class="form-control" placeholder="Add Subtitle Here" />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <textarea class="summernote" name="details[]" class="form-control" placeholder="Add Details Here"></textarea>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <!-- <button class="btn btn-success btn-increment" type="button">Add More</button> -->
+                                                    <button class="btn btn-danger remove-btn" type="button">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="form-group row mb-4">
+                                    <div class="col-sm-12 col-md-7 offset-md-3">
+                                    <button class="btn btn-success btn-increment" type="button">Add More</button>
                                         <input type="submit" class="btn btn-primary px-4" value="Update Investigation" />
                                     </div>
                                 </div>
                             </form>
                         </div>
-
-                        @foreach($investigation_content as $investigation_content)
-                            <div class="card-body">
-                                <form action="{{route('investigationContent.update')}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="content_id" class="form-control" value="{{ $investigation_content->id }}">
-                                   
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Subtitle</label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <input type="text" name="subtitle" class="form-control" value="{{ $investigation_content->sub_title }}">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Details</label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <textarea class="summernote" name="details">{{ $investigation_content->description }}</textarea>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <input type="submit" class="btn btn-primary px-4" value="Update Content" />
-                                            <a href="{{ route('investigationContent.delete', $investigation_content->id) }}" class="btn btn-danger">Delete</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        @endforeach
-
-
-                        
                     </div>
                 </div>
             </div>
@@ -72,7 +77,7 @@
     </section>
 </div>
 
-<!-- Repeater Script -->
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
