@@ -37,7 +37,48 @@ const App = () => {
                     }
                 });
             });
-        }, 800);
+
+            const _singleMenus = document.querySelectorAll('.single-menu-btn2');
+            const _sidebarBtn = document.querySelector('.sidebar-btn');
+            
+            _singleMenus.forEach(menu => {
+                menu.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const currentContent = menu.nextElementSibling;
+                    const parentLi = menu.closest('li');
+                    // Hide all other menu contents and remove 'active' from other <li>s
+                    _singleMenus.forEach(otherMenu => {
+                        const otherContent = otherMenu.nextElementSibling;
+                        const otherLi = otherMenu.closest('li');
+                        if (otherContent !== currentContent) {
+                            // otherContent.style.display = 'none';
+                            if (otherLi) otherLi.classList.remove('active');
+                        }
+                    });
+        
+                    // Toggle current menu content and 'active' class
+                    const isVisible = currentContent.style.display === 'block';
+                    currentContent.style.display = isVisible ? 'none' : 'block';
+                    if (parentLi) {
+                        if (isVisible) {
+                            parentLi.classList.remove('active');
+                        } else {
+                            parentLi.classList.add('active');
+                        }
+                    }
+                });
+            });
+        
+            // When the sidebar button is clicked, hide all menu contents and remove 'active'
+            _sidebarBtn.addEventListener('click', function () {
+                singleMenus.forEach(menu => {
+                    const menuContent = menu.nextElementSibling;
+                    const parentLi = menu.closest('li');
+                    menuContent.style.display = 'none';
+                    if (parentLi) parentLi.classList.remove('active');
+                });
+            });
+        }, 2000);
     }, [] );
     return (
         <Fragment>
